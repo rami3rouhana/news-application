@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import alanBtn from '@alan-ai/alan-sdk-web';
 
-function App() {
+const App = () => {
+
+  useEffect(() => {
+    alanBtn({
+      key: '1a2935cb42fe364b1dcfe5cd4c05318f2e956eca572e1d8b807a3e2338fdd0dc/stage',
+      onCommand: ( {command} ) => {
+        if(command==='testCommand'){
+          alert("Command tested")
+        }
+      }
+    });
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Alan AI News Application</h1>
     </div>
   );
 }
